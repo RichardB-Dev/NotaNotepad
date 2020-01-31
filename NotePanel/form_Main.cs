@@ -28,38 +28,32 @@ namespace NotePanel
 
         #region Initialise Form
 
+        /// <summary>
+        /// Main Form Constructor
+        /// </summary>
         public form_Main()
-        {
-            //if (!File.Exists(AppPath + @"AppConfig.json")) // Create Config JSON file if does not exist
-            //{
-            //    form_InitialSettings form_InitialSettings = new form_InitialSettings();
-            //    form_InitialSettings.Show();
-            //    this.Close();
-            //}
-
-            configData = new Config();
+        {            
             InitializeComponent();
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            configData = new Config();
+            this.SetStyle(ControlStyles.ResizeRedraw, true); // Set form style to resizable
             if (!Directory.Exists(configData.appConfig.backup_Location))  // Create image directory if it doesnt exist
             {
-                System.IO.Directory.CreateDirectory(configData.appConfig.backup_Location);
-            }
-
-           
+                Directory.CreateDirectory(configData.appConfig.backup_Location);
+            }           
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void form_Main_Load(object sender, EventArgs e)
         {
-            if (File.Exists(AutoSavePath))
+            if (File.Exists(AutoSavePath)) // If autosave file exists, load text
             {
                 tb_Main.Text = File.ReadAllText(AutoSavePath);
             }
             StartBackupTimer();
         }
 
-        private void Form1_Resize(object sender, EventArgs e)
+        private void form_Main_Resize(object sender, EventArgs e)
         {
-            ScrollBarPosition();
+            SetScrollBarLayout();
         }
 
         #endregion
@@ -130,7 +124,7 @@ namespace NotePanel
 
         private void changeBackupIntervalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            form_BackupSettings settings_BackupInterval = new form_BackupSettings(ref configData, false);
+            form_BackupSettings settings_BackupInterval = new form_BackupSettings(ref configData);
             settings_BackupInterval.FormClosed += new FormClosedEventHandler(UpdateTimer);
             settings_BackupInterval.Show();
         }
@@ -164,7 +158,7 @@ namespace NotePanel
         private void tb_Main_TextChanged(object sender, EventArgs e)
         {
             File.WriteAllText(AutoSavePath, tb_Main.Text.ToString());
-            ScrollBarPosition();
+            SetScrollBarLayout();
         }
 
         private void timer_BackUp_Tick(object sender, EventArgs e)
@@ -187,13 +181,18 @@ namespace NotePanel
 
         #region Functions
 
-        private void ScrollBarPosition()
+        /// <summary>
+        /// Depending on scrollbar visibility, adjust controller positions and visibility 
+        /// </summary>
+        private void SetScrollBarLayout()
         {
+            // Get scrollbar visibility
             bool currentScrollBarVisibility = CheckScrollBarVisibility();
 
+            //If visibility does not match last saved visibility, update layout
             if (IsScollBarVisible != currentScrollBarVisibility)
             {
-                if (currentScrollBarVisibility)
+                if (currentScrollBarVisibility) 
                 { 
                     pnl_ResizeCorner.Left = this.Width - 40;
                     pnl_ScrollBarBackground.Visible = true;
@@ -203,47 +202,62 @@ namespace NotePanel
                     pnl_ResizeCorner.Left = this.Width - 20;
                     pnl_ScrollBarBackground.Visible = false;
                 }
-                IsScollBarVisible = currentScrollBarVisibility;
+
+                // Save current scrollbar state
+                IsScollBarVisible = currentScrollBarVisibility; 
             }
         }
 
+        /// <summary>
+        /// Check is scrollbar visible
+        /// </summary>
+        /// <returns></returns>
         private bool CheckScrollBarVisibility()
-        {
-            // get graphics for textbox
-            var g = tb_Main.CreateGraphics();
+        {            
+            var g = tb_Main.CreateGraphics(); // Create a Graphics object for the textbox.
             SizeF textSize;
+
             if (tb_Main.WordWrap)
-                // get size of text when word wrap is on
+                // Get size of text when word wrap is on
                 textSize = g.MeasureString(tb_Main.Text, tb_Main.Font, tb_Main.ClientRectangle.Width);
             else
-                // get size of text when word wrap is off
+                // Get size of text when word wrap is off
                 textSize = g.MeasureString(tb_Main.Text, tb_Main.Font);
 
-            textSize.Height += (tb_Main.Height / 11);
+            // Fix for controller error: Approximate size inconsistency difference 
+            textSize.Height += (tb_Main.Height / 11); 
+
             return !((RectangleF)tb_Main.ClientRectangle).Contains((PointF)textSize);
         }
 
+        /// <summary>
+        /// Create new routine backup file
+        /// </summary>
         private void CreateBackUpFile()
         {
             if (!Directory.Exists(configData.appConfig.backup_Location))  // Create image directory if it doesnt exist
             {
-                System.IO.Directory.CreateDirectory(configData.appConfig.backup_Location);
+                Directory.CreateDirectory(configData.appConfig.backup_Location);
             }
+            // Save NotePanel text to text file
             File.AppendAllText(configData.appConfig.backup_Location + @"\NotesBackUp_" + DateTime.Now.ToString("yyyy-MM-dd__HH-mm-ss") + ".txt", tb_Main.Text.ToString());
         }
 
+        /// <summary>
+        /// Start Backup Routine
+        /// </summary>
         private void StartBackupTimer()
         {
             timer_BackUp.Stop();
-            if (configData.appConfig.backup_Enabled)
+            if (configData.appConfig.backup_Enabled) // Start timer if backup config setting is enabled
             {
-                NextBackupTime = CreateNextBackupTime();
-                timer_BackUp.Interval = 60000;
+                NextBackupTime = CreateNextBackupTime(); // Get and save next backup time
                 timer_BackUp.Start();
             }
         }
 
         /// <summary>
+        /// Linked to Settings Form close event
         /// Update running timer with new config setting from the settings form
         /// </summary>
         /// <param name="sender"></param>
@@ -254,7 +268,7 @@ namespace NotePanel
         }
 
         /// <summary>
-        /// Create next backup time using config settings
+        /// Get next backup time using config settings
         /// </summary>
         /// <returns></returns>
         private DateTime CreateNextBackupTime()
@@ -267,14 +281,6 @@ namespace NotePanel
         }
 
         #endregion
-
-
-
-
-
-
-
-
+         
     }
-
 }

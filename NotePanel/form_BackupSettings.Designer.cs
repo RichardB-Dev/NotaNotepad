@@ -59,8 +59,8 @@
             // num_Days
             // 
             this.num_Days.BackColor = System.Drawing.SystemColors.Control;
-            this.num_Days.Location = new System.Drawing.Point(73, 121);
-            this.num_Days.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.num_Days.Location = new System.Drawing.Point(76, 121);
+            this.num_Days.Margin = new System.Windows.Forms.Padding(4);
             this.num_Days.Name = "num_Days";
             this.num_Days.Size = new System.Drawing.Size(67, 22);
             this.num_Days.TabIndex = 0;
@@ -68,8 +68,8 @@
             // num_Hours
             // 
             this.num_Hours.BackColor = System.Drawing.SystemColors.Control;
-            this.num_Hours.Location = new System.Drawing.Point(240, 121);
-            this.num_Hours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.num_Hours.Location = new System.Drawing.Point(243, 121);
+            this.num_Hours.Margin = new System.Windows.Forms.Padding(4);
             this.num_Hours.Name = "num_Hours";
             this.num_Hours.Size = new System.Drawing.Size(67, 22);
             this.num_Hours.TabIndex = 1;
@@ -79,7 +79,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(16, 123);
+            this.label1.Location = new System.Drawing.Point(19, 123);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 20);
@@ -91,7 +91,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(177, 126);
+            this.label2.Location = new System.Drawing.Point(180, 126);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 20);
@@ -103,7 +103,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(336, 126);
+            this.label4.Location = new System.Drawing.Point(339, 126);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 20);
@@ -113,8 +113,8 @@
             // num_Minutes
             // 
             this.num_Minutes.BackColor = System.Drawing.SystemColors.Control;
-            this.num_Minutes.Location = new System.Drawing.Point(413, 121);
-            this.num_Minutes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.num_Minutes.Location = new System.Drawing.Point(416, 121);
+            this.num_Minutes.Margin = new System.Windows.Forms.Padding(4);
             this.num_Minutes.Name = "num_Minutes";
             this.num_Minutes.Size = new System.Drawing.Size(67, 22);
             this.num_Minutes.TabIndex = 4;
@@ -123,8 +123,8 @@
             // 
             this.btn_Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Save.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Save.Location = new System.Drawing.Point(315, 337);
-            this.btn_Save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Save.Location = new System.Drawing.Point(318, 337);
+            this.btn_Save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(165, 50);
             this.btn_Save.TabIndex = 7;
@@ -140,10 +140,10 @@
             this.btn_Close.FlatAppearance.BorderSize = 0;
             this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Close.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Close.Location = new System.Drawing.Point(467, 0);
-            this.btn_Close.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Close.Location = new System.Drawing.Point(481, 0);
+            this.btn_Close.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(51, 39);
+            this.btn_Close.Size = new System.Drawing.Size(36, 32);
             this.btn_Close.TabIndex = 4;
             this.btn_Close.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_Close.UseVisualStyleBackColor = true;
@@ -156,9 +156,9 @@
             this.pnl_TopBar.Controls.Add(this.btn_Close);
             this.pnl_TopBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_TopBar.Location = new System.Drawing.Point(0, 0);
-            this.pnl_TopBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnl_TopBar.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_TopBar.Name = "pnl_TopBar";
-            this.pnl_TopBar.Size = new System.Drawing.Size(517, 39);
+            this.pnl_TopBar.Size = new System.Drawing.Size(517, 32);
             this.pnl_TopBar.TabIndex = 8;
             this.pnl_TopBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_TopBar_MouseDown);
             this.pnl_TopBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_TopBar_MouseMove);
@@ -168,7 +168,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(16, 11);
+            this.label3.Location = new System.Drawing.Point(16, 8);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 20);
@@ -180,7 +180,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(15, 77);
+            this.label5.Location = new System.Drawing.Point(18, 77);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(168, 25);
@@ -192,7 +192,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Silver;
-            this.label6.Location = new System.Drawing.Point(19, 169);
+            this.label6.Location = new System.Drawing.Point(22, 169);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(420, 25);
@@ -204,7 +204,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Silver;
-            this.label7.Location = new System.Drawing.Point(15, 216);
+            this.label7.Location = new System.Drawing.Point(18, 216);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(179, 25);
@@ -214,8 +214,8 @@
             // tb_BackupLocation
             // 
             this.tb_BackupLocation.BackColor = System.Drawing.SystemColors.Control;
-            this.tb_BackupLocation.Location = new System.Drawing.Point(24, 263);
-            this.tb_BackupLocation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_BackupLocation.Location = new System.Drawing.Point(27, 263);
+            this.tb_BackupLocation.Margin = new System.Windows.Forms.Padding(4);
             this.tb_BackupLocation.Name = "tb_BackupLocation";
             this.tb_BackupLocation.Size = new System.Drawing.Size(371, 22);
             this.tb_BackupLocation.TabIndex = 13;
@@ -225,8 +225,8 @@
             this.btn_Search.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Search.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Search.Location = new System.Drawing.Point(404, 261);
-            this.btn_Search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Search.Location = new System.Drawing.Point(407, 261);
+            this.btn_Search.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(76, 27);
             this.btn_Search.TabIndex = 14;
@@ -238,8 +238,8 @@
             // 
             this.btn_Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Reset.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Reset.Location = new System.Drawing.Point(24, 337);
-            this.btn_Reset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Reset.Location = new System.Drawing.Point(27, 337);
+            this.btn_Reset.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(165, 50);
             this.btn_Reset.TabIndex = 15;
@@ -251,7 +251,7 @@
             // 
             this.chkbox_BackupEnabled.AutoSize = true;
             this.chkbox_BackupEnabled.ForeColor = System.Drawing.SystemColors.Control;
-            this.chkbox_BackupEnabled.Location = new System.Drawing.Point(352, 61);
+            this.chkbox_BackupEnabled.Location = new System.Drawing.Point(355, 61);
             this.chkbox_BackupEnabled.Name = "chkbox_BackupEnabled";
             this.chkbox_BackupEnabled.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.chkbox_BackupEnabled.Size = new System.Drawing.Size(133, 21);
@@ -282,7 +282,7 @@
             this.Controls.Add(this.num_Hours);
             this.Controls.Add(this.num_Days);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "form_BackupSettings";

@@ -23,16 +23,10 @@ namespace NotePanel
             InitializeComponent();
         }
 
-        private void form_InitialSettings_Load(object sender, EventArgs e)
-        {
-
-            this.BringToFront();
-        }
-
         #endregion
 
-        //***** Controllers *****
-        #region Controllers
+        //***** Controller Handlers *****
+        #region Controller Handlers
 
         #region Top bar
 
@@ -44,7 +38,7 @@ namespace NotePanel
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
-                MouseDownLocation = e.Location;
+                MouseDownLocation = e.Location; //Save current mouse point location
             }
         }
 
@@ -71,7 +65,7 @@ namespace NotePanel
 
         private void radbtn_15min_CheckedChanged(object sender, EventArgs e)
         {
-            SetIntervalTime(0,0,15);
+            SetIntervalTime(0, 0, 15);
         }
 
         private void radbtn_1hour_CheckedChanged(object sender, EventArgs e)
@@ -91,28 +85,33 @@ namespace NotePanel
 
         private void radbtn_Custom_CheckedChanged(object sender, EventArgs e)
         {
-            grpbox_CustomInterval.Visible = radbtn_Custom.Checked;
+            grpbox_CustomInterval.Visible = radbtn_Custom.Checked; // Show/Hide custom time controllers
         }
 
         #endregion
 
+        /// <summary>
+        /// Save backup interval and open NotePanel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Ok_Click(object sender, EventArgs e)
         {
-            if (radbtn_Custom.Checked)
+            if (radbtn_Custom.Checked) // If custom interval selected
             {
-                if (Convert.ToInt32(num_Days.Value) + Convert.ToInt32(num_Hours.Value) + Convert.ToInt32(num_Minutes.Value) == 0)
+                int days = Convert.ToInt32(num_Days.Value);
+                int hours = Convert.ToInt32(num_Hours.Value);
+                int minutes = Convert.ToInt32(num_Minutes.Value);
+
+                if (days + hours + minutes == 0) // Check if interval is set to zero
                 {
                     MessageBox.Show("Please set backup interval. All values can not be 0", "Error");
                     return;
                 }
-
-                SetIntervalTime(
-                    Convert.ToInt32(num_Days.Value),
-                    Convert.ToInt32(num_Hours.Value),
-                    Convert.ToInt32(num_Minutes.Value));
+                SetIntervalTime(days, hours, minutes); // Change backup interval
             }
-            configData.SaveConfig();
-            Application.Restart();
+            configData.SaveConfig(); // Write config settings to file
+            Application.Restart(); // Restart application with config file now created.
         }
 
         #endregion
@@ -120,6 +119,12 @@ namespace NotePanel
         //***** Function *****
         #region Functions
 
+        /// <summary>
+        /// Set config backup interval(days, hours, minutes)
+        /// </summary>
+        /// <param name="_days"></param>
+        /// <param name="_hours"></param>
+        /// <param name="_minutes"></param>
         private void SetIntervalTime(int _days = 0, int _hours = 0, int _minutes = 0)
         {
             configData.appConfig.interval_Days = _days;
@@ -128,5 +133,6 @@ namespace NotePanel
         }
 
         #endregion
+
     }
 }

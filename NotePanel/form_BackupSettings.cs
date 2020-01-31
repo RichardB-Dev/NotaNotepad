@@ -1,36 +1,57 @@
 ﻿using NotePanel.Classess;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace NotePanel
 {
     public partial class form_BackupSettings : Form
     {
+               
+        //***** Public Members *****
+        #region Public Members
+
         Config configData;
 
-        public form_BackupSettings(ref Config _config, bool t)
+        #endregion
+
+        //***** Initialise Form *****
+        #region Initialise Form
+
+        /// <summary>
+        /// Backup Setting Constructor
+        /// </summary>
+        /// <param name="_config"></param>
+        /// <param name="t"></param>
+        public form_BackupSettings(ref Config _config)
         {
             InitializeComponent();
             configData = _config;
         }
 
+        /// <summary>
+        /// Load config setting to on screen controllers
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Settings_BackupSettings_Load(object sender, EventArgs e)
         {
-            chkbox_BackupEnabled.Checked = configData.appConfig.backup_Enabled;
-            enableControllers(chkbox_BackupEnabled.Checked);
+            //Populate controllers with config settings
             tb_BackupLocation.Text = configData.appConfig.backup_Location;
             num_Days.Value = configData.appConfig.interval_Days;
             num_Hours.Value = configData.appConfig.interval_Hours;
             num_Minutes.Value = configData.appConfig.interval_Minutes;
-
+            chkbox_BackupEnabled.Checked = configData.appConfig.backup_Enabled;
+            enableControllers(chkbox_BackupEnabled.Checked);
         }
+
+        #endregion
+
+        //***** Controller Handlers *****
+        #region Controller Handlers
+
+        #region Top Bar
 
         #region Drag Window
 
@@ -53,34 +74,65 @@ namespace NotePanel
             }
         }
 
-
         #endregion
-
-        private void btn_Save_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(num_Days.Value) + Convert.ToInt32(num_Hours.Value) + Convert.ToInt32(num_Minutes.Value) == 0)
-            {
-                MessageBox.Show("Please set backup interval. All values can not be 0", "Error");
-                return;
-            }
-
-            if (chkbox_BackupEnabled.Checked)
-            {
-                configData.appConfig.interval_Days = Convert.ToInt32(num_Days.Value);
-                configData.appConfig.interval_Hours = Convert.ToInt32(num_Hours.Value);
-                configData.appConfig.interval_Minutes = Convert.ToInt32(num_Minutes.Value);
-                configData.appConfig.backup_Location = tb_BackupLocation.Text;
-            }
-            configData.appConfig.backup_Enabled = chkbox_BackupEnabled.Checked;
-            configData.SaveConfig();
-            this.Close();
-        }
 
         private void btn_Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        #endregion
+
+        /// <summary>
+        /// Toggle enable/disable interval and location controllers
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkbox_BackupEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            enableControllers(chkbox_BackupEnabled.Checked);
+        }
+
+        /// <summary>
+        /// Save Backup Settings
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            int days = Convert.ToInt32(num_Days.Value);
+            int hours = Convert.ToInt32(num_Hours.Value);
+            int minutes = Convert.ToInt32(num_Minutes.Value);
+
+            if (days + hours + minutes == 0) // Check if interval is set to zero
+            {
+                MessageBox.Show("Please set backup interval. All values can not be 0", "Error");
+                return;
+            }
+
+            if (chkbox_BackupEnabled.Checked) // Update interval and location if backup enabled
+            {
+                if (!Directory.Exists(tb_BackupLocation.Text)) // Check if location doesnt exist
+                {
+                    MessageBox.Show("Backup location selected does not exist!", "Backup Location Error");
+                    return;
+                }
+                configData.appConfig.interval_Days = days;
+                configData.appConfig.interval_Hours = hours;
+                configData.appConfig.interval_Minutes = minutes;
+                configData.appConfig.backup_Location = tb_BackupLocation.Text;
+            }
+
+            configData.appConfig.backup_Enabled = chkbox_BackupEnabled.Checked;
+            configData.SaveConfig(); // Write config settings to file
+            this.Close();
+        }
+        
+        /// <summary>
+        /// Open folder browser for backup location
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Search_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderSearchDialog = new FolderBrowserDialog();
@@ -92,6 +144,11 @@ namespace NotePanel
             }
         }
 
+        /// <summary>
+        /// Reset controllers to default donfig settings
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Reset_Click(object sender, EventArgs e)
         {
             AppConfig defaultConfig = new AppConfig();
@@ -102,11 +159,15 @@ namespace NotePanel
             tb_BackupLocation.Text = defaultConfig.backup_Location;
         }
 
-        private void chkbox_BackupEnabled_CheckedChanged(object sender, EventArgs e)
-        {
-            enableControllers(chkbox_BackupEnabled.Checked);
-        }
+        #endregion
 
+        //***** Function *****
+        #region Functions
+
+        /// <summary>
+        /// Enable/disable interval and location controllers
+        /// </summary>
+        /// <param name="Enabled"></param>
         private void enableControllers(bool Enabled)
         {
             num_Days.Enabled = Enabled;
@@ -114,5 +175,8 @@ namespace NotePanel
             num_Minutes.Enabled = Enabled;
             tb_BackupLocation.Enabled = Enabled;
         }
+
+        #endregion
+
     }
 }

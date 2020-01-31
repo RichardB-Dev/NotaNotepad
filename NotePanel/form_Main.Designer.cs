@@ -226,6 +226,7 @@
             // 
             // timer_BackUp
             // 
+            this.timer_BackUp.Interval = 60000;
             this.timer_BackUp.Tick += new System.EventHandler(this.timer_BackUp_Tick);
             // 
             // form_Main
@@ -242,9 +243,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "form_Main";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Resize += new System.EventHandler(this.Form1_Resize);
+            this.Load += new System.EventHandler(this.form_Main_Load);
+            this.Resize += new System.EventHandler(this.form_Main_Resize);
             this.contextMenuStrip1.ResumeLayout(false);
             this.pnl_TopBar.ResumeLayout(false);
             this.ResumeLayout(false);

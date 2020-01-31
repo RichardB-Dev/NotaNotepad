@@ -65,7 +65,7 @@
             this.pnl_TopBar.Location = new System.Drawing.Point(0, 0);
             this.pnl_TopBar.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_TopBar.Name = "pnl_TopBar";
-            this.pnl_TopBar.Size = new System.Drawing.Size(710, 39);
+            this.pnl_TopBar.Size = new System.Drawing.Size(710, 32);
             this.pnl_TopBar.TabIndex = 9;
             this.pnl_TopBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_TopBar_MouseDown);
             this.pnl_TopBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_TopBar_MouseMove);
@@ -75,7 +75,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(13, 9);
+            this.label3.Location = new System.Drawing.Point(13, 8);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(173, 20);
@@ -90,10 +90,10 @@
             this.btn_Close.FlatAppearance.BorderSize = 0;
             this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Close.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Close.Location = new System.Drawing.Point(660, 0);
+            this.btn_Close.Location = new System.Drawing.Point(674, 0);
             this.btn_Close.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(51, 39);
+            this.btn_Close.Size = new System.Drawing.Size(36, 32);
             this.btn_Close.TabIndex = 4;
             this.btn_Close.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_Close.UseVisualStyleBackColor = true;
@@ -242,6 +242,11 @@
             this.num_Minutes.BackColor = System.Drawing.SystemColors.Control;
             this.num_Minutes.Location = new System.Drawing.Point(119, 99);
             this.num_Minutes.Margin = new System.Windows.Forms.Padding(4);
+            this.num_Minutes.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
             this.num_Minutes.Name = "num_Minutes";
             this.num_Minutes.Size = new System.Drawing.Size(67, 27);
             this.num_Minutes.TabIndex = 24;
@@ -275,6 +280,11 @@
             this.num_Hours.BackColor = System.Drawing.SystemColors.Control;
             this.num_Hours.Location = new System.Drawing.Point(119, 64);
             this.num_Hours.Margin = new System.Windows.Forms.Padding(4);
+            this.num_Hours.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
             this.num_Hours.Name = "num_Hours";
             this.num_Hours.Size = new System.Drawing.Size(67, 27);
             this.num_Hours.TabIndex = 21;
@@ -332,7 +342,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "form_InitialSettings";
             this.Text = "form_InitialSettings";
-            this.Load += new System.EventHandler(this.form_InitialSettings_Load);
             this.pnl_TopBar.ResumeLayout(false);
             this.pnl_TopBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_Minutes)).EndInit();
