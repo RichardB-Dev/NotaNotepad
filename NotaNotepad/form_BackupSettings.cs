@@ -1,10 +1,10 @@
-﻿using NotePanel.Classess;
+﻿using NotaNotepad.Classess;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace NotePanel
+namespace NotaNotepad
 {
     public partial class form_BackupSettings : Form
     {

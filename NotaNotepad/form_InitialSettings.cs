@@ -1,9 +1,9 @@
-﻿using NotePanel.Classess;
+﻿using NotaNotepad.Classess;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace NotePanel
+namespace NotaNotepad
 {
     public partial class form_InitialSettings : Form
     {
@@ -91,7 +91,7 @@ namespace NotePanel
         #endregion
 
         /// <summary>
-        /// Save backup interval and open NotePanel
+        /// Save backup interval and open Notepad
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

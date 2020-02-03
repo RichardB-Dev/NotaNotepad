@@ -1,4 +1,4 @@
-﻿namespace NotePanel
+﻿namespace NotaNotepad
 {
     partial class form_InitialSettings
     {
@@ -198,7 +198,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(631, 20);
             this.label4.TabIndex = 17;
-            this.label4.Text = "All backups can be viewed by clicking \"Open Backup Folder\" in the Notepanel Menu";
+            this.label4.Text = "All backups can be viewed by clicking \"Open Backup Folder\" in the Notepad Menu";
             // 
             // label5
             // 

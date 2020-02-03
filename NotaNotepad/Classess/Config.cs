@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace NotePanel.Classess
+namespace NotaNotepad.Classess
 {
     public class Config
     {
@@ -17,7 +17,7 @@ namespace NotePanel.Classess
             {
                 WriteToSaveFile(); // Create file
                 string windowsStartUpFolder = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
-                CreateShortcut("NotePanel_Shortcut", windowsStartUpFolder, AppDomain.CurrentDomain.BaseDirectory + @"\NotePanel.exe"); // Create start up shortcut
+                CreateShortcut("NotaNotepad_Shortcut", windowsStartUpFolder, AppDomain.CurrentDomain.BaseDirectory + @"\Nota Notepad.exe"); // Create start up shortcut
                 ConfigFileCreated = true;
             }
             else

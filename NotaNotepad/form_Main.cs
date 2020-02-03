@@ -1,10 +1,10 @@
-﻿using NotePanel.Classess;
+﻿using NotaNotepad.Classess;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace NotePanel
+namespace NotaNotepad
 {
     public partial class form_Main : Form
     {
@@ -239,7 +239,7 @@ namespace NotePanel
             {
                 Directory.CreateDirectory(configData.appConfig.backup_Location);
             }
-            // Save NotePanel text to text file
+            // Save Notepad text to text file
             File.AppendAllText(configData.appConfig.backup_Location + @"\NotesBackUp_" + DateTime.Now.ToString("yyyy-MM-dd__HH-mm-ss") + ".txt", tb_Main.Text.ToString());
         }
 

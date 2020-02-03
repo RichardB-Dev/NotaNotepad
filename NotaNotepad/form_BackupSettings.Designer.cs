@@ -1,4 +1,4 @@
-﻿namespace NotePanel
+﻿namespace NotaNotepad
 {
     partial class form_BackupSettings
     {

@@ -1,4 +1,4 @@
-﻿namespace NotePanel
+﻿namespace NotaNotepad
 {
     partial class form_Main
     {
@@ -50,8 +50,8 @@
             // 
             // tb_Main
             // 
-            this.tb_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tb_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_Main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.tb_Main.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -205,7 +205,7 @@
             // 
             // pnl_ScrollBarBackground
             // 
-            this.pnl_ScrollBarBackground.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnl_ScrollBarBackground.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_ScrollBarBackground.BackColor = System.Drawing.SystemColors.Control;
             this.pnl_ScrollBarBackground.Location = new System.Drawing.Point(453, 25);
