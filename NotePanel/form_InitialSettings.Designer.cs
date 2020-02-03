@@ -340,6 +340,7 @@
             this.Controls.Add(this.radbtn_15min);
             this.Controls.Add(this.pnl_TopBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "form_InitialSettings";
             this.Text = "form_InitialSettings";
             this.pnl_TopBar.ResumeLayout(false);
