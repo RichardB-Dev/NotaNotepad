@@ -59,19 +59,17 @@
             // num_Days
             // 
             this.num_Days.BackColor = System.Drawing.SystemColors.Control;
-            this.num_Days.Location = new System.Drawing.Point(76, 121);
-            this.num_Days.Margin = new System.Windows.Forms.Padding(4);
+            this.num_Days.Location = new System.Drawing.Point(57, 98);
             this.num_Days.Name = "num_Days";
-            this.num_Days.Size = new System.Drawing.Size(67, 22);
+            this.num_Days.Size = new System.Drawing.Size(50, 20);
             this.num_Days.TabIndex = 0;
             // 
             // num_Hours
             // 
             this.num_Hours.BackColor = System.Drawing.SystemColors.Control;
-            this.num_Hours.Location = new System.Drawing.Point(243, 121);
-            this.num_Hours.Margin = new System.Windows.Forms.Padding(4);
+            this.num_Hours.Location = new System.Drawing.Point(182, 98);
             this.num_Hours.Name = "num_Hours";
-            this.num_Hours.Size = new System.Drawing.Size(67, 22);
+            this.num_Hours.Size = new System.Drawing.Size(50, 20);
             this.num_Hours.TabIndex = 1;
             // 
             // label1
@@ -79,10 +77,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(19, 123);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(14, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 20);
+            this.label1.Size = new System.Drawing.Size(40, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Days";
             // 
@@ -91,10 +88,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(180, 126);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(135, 102);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Hours";
             // 
@@ -103,30 +99,27 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(339, 126);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(254, 102);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 20);
+            this.label4.Size = new System.Drawing.Size(54, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "Minutes";
             // 
             // num_Minutes
             // 
             this.num_Minutes.BackColor = System.Drawing.SystemColors.Control;
-            this.num_Minutes.Location = new System.Drawing.Point(416, 121);
-            this.num_Minutes.Margin = new System.Windows.Forms.Padding(4);
+            this.num_Minutes.Location = new System.Drawing.Point(312, 98);
             this.num_Minutes.Name = "num_Minutes";
-            this.num_Minutes.Size = new System.Drawing.Size(67, 22);
+            this.num_Minutes.Size = new System.Drawing.Size(50, 20);
             this.num_Minutes.TabIndex = 4;
             // 
             // btn_Save
             // 
             this.btn_Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Save.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Save.Location = new System.Drawing.Point(318, 337);
-            this.btn_Save.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Save.Location = new System.Drawing.Point(238, 274);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(165, 50);
+            this.btn_Save.Size = new System.Drawing.Size(124, 41);
             this.btn_Save.TabIndex = 7;
             this.btn_Save.Text = "Save";
             this.btn_Save.UseVisualStyleBackColor = true;
@@ -140,10 +133,9 @@
             this.btn_Close.FlatAppearance.BorderSize = 0;
             this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Close.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Close.Location = new System.Drawing.Point(481, 0);
-            this.btn_Close.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Close.Location = new System.Drawing.Point(361, 0);
             this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(36, 32);
+            this.btn_Close.Size = new System.Drawing.Size(27, 26);
             this.btn_Close.TabIndex = 4;
             this.btn_Close.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_Close.UseVisualStyleBackColor = true;
@@ -156,9 +148,8 @@
             this.pnl_TopBar.Controls.Add(this.btn_Close);
             this.pnl_TopBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_TopBar.Location = new System.Drawing.Point(0, 0);
-            this.pnl_TopBar.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_TopBar.Name = "pnl_TopBar";
-            this.pnl_TopBar.Size = new System.Drawing.Size(517, 32);
+            this.pnl_TopBar.Size = new System.Drawing.Size(388, 26);
             this.pnl_TopBar.TabIndex = 8;
             this.pnl_TopBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_TopBar_MouseDown);
             this.pnl_TopBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_TopBar_MouseMove);
@@ -168,10 +159,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(16, 8);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(12, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 20);
+            this.label3.Size = new System.Drawing.Size(64, 16);
             this.label3.TabIndex = 9;
             this.label3.Text = "Settings";
             // 
@@ -180,10 +170,9 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(18, 77);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(14, 63);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(168, 25);
+            this.label5.Size = new System.Drawing.Size(139, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Backup Interval:";
             // 
@@ -192,10 +181,9 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Silver;
-            this.label6.Location = new System.Drawing.Point(22, 169);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(16, 137);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(420, 25);
+            this.label6.Size = new System.Drawing.Size(349, 20);
             this.label6.TabIndex = 11;
             this.label6.Text = "__________________________________";
             // 
@@ -204,20 +192,18 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Silver;
-            this.label7.Location = new System.Drawing.Point(18, 216);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(14, 176);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(179, 25);
+            this.label7.Size = new System.Drawing.Size(148, 20);
             this.label7.TabIndex = 12;
             this.label7.Text = "Backup Location:";
             // 
             // tb_BackupLocation
             // 
             this.tb_BackupLocation.BackColor = System.Drawing.SystemColors.Control;
-            this.tb_BackupLocation.Location = new System.Drawing.Point(27, 263);
-            this.tb_BackupLocation.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_BackupLocation.Location = new System.Drawing.Point(20, 214);
             this.tb_BackupLocation.Name = "tb_BackupLocation";
-            this.tb_BackupLocation.Size = new System.Drawing.Size(371, 22);
+            this.tb_BackupLocation.Size = new System.Drawing.Size(279, 20);
             this.tb_BackupLocation.TabIndex = 13;
             // 
             // btn_Search
@@ -225,10 +211,9 @@
             this.btn_Search.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Search.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Search.Location = new System.Drawing.Point(407, 261);
-            this.btn_Search.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Search.Location = new System.Drawing.Point(305, 212);
             this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(76, 27);
+            this.btn_Search.Size = new System.Drawing.Size(57, 22);
             this.btn_Search.TabIndex = 14;
             this.btn_Search.Text = "Search";
             this.btn_Search.UseVisualStyleBackColor = true;
@@ -238,10 +223,9 @@
             // 
             this.btn_Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Reset.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Reset.Location = new System.Drawing.Point(27, 337);
-            this.btn_Reset.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Reset.Location = new System.Drawing.Point(20, 274);
             this.btn_Reset.Name = "btn_Reset";
-            this.btn_Reset.Size = new System.Drawing.Size(165, 50);
+            this.btn_Reset.Size = new System.Drawing.Size(124, 41);
             this.btn_Reset.TabIndex = 15;
             this.btn_Reset.Text = "Reset";
             this.btn_Reset.UseVisualStyleBackColor = true;
@@ -251,10 +235,11 @@
             // 
             this.chkbox_BackupEnabled.AutoSize = true;
             this.chkbox_BackupEnabled.ForeColor = System.Drawing.SystemColors.Control;
-            this.chkbox_BackupEnabled.Location = new System.Drawing.Point(355, 61);
+            this.chkbox_BackupEnabled.Location = new System.Drawing.Point(266, 50);
+            this.chkbox_BackupEnabled.Margin = new System.Windows.Forms.Padding(2);
             this.chkbox_BackupEnabled.Name = "chkbox_BackupEnabled";
             this.chkbox_BackupEnabled.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.chkbox_BackupEnabled.Size = new System.Drawing.Size(133, 21);
+            this.chkbox_BackupEnabled.Size = new System.Drawing.Size(105, 17);
             this.chkbox_BackupEnabled.TabIndex = 16;
             this.chkbox_BackupEnabled.Text = "Backup Enabled";
             this.chkbox_BackupEnabled.UseVisualStyleBackColor = true;
@@ -262,10 +247,10 @@
             // 
             // form_BackupSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.ClientSize = new System.Drawing.Size(517, 402);
+            this.ClientSize = new System.Drawing.Size(388, 327);
             this.Controls.Add(this.chkbox_BackupEnabled);
             this.Controls.Add(this.btn_Reset);
             this.Controls.Add(this.btn_Search);
@@ -283,7 +268,6 @@
             this.Controls.Add(this.num_Days);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "form_BackupSettings";

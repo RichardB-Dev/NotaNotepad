@@ -12,16 +12,9 @@ namespace NotaNotepad
         #region Public Members
 
         Config configData;
-
         bool IsScollBarVisible = false;
         static string AppPath = AppDomain.CurrentDomain.BaseDirectory;
-        string AutoSavePath = AppDomain.CurrentDomain.BaseDirectory + "NotePad_AutoSave.txt";              
-
-        int t_Second = 1000;
-        int t_Minute = 60000;
-        int t_Hour = 3600000;
-        int t_Day = 86400000;
-        
+        string AutoSavePath = AppDomain.CurrentDomain.BaseDirectory + "NotePad_AutoSave.txt";     
         DateTime NextBackupTime;
 
         #endregion
@@ -35,20 +28,25 @@ namespace NotaNotepad
         {            
             InitializeComponent();
             configData = new Config();
+
+            ChangeColor(configData.appConfig.background_Color, configData.appConfig.foreground_Color, false);
+
             this.SetStyle(ControlStyles.ResizeRedraw, true); // Set form style to resizable
             if (!Directory.Exists(configData.appConfig.backup_Location))  // Create image directory if it doesnt exist
             {
                 Directory.CreateDirectory(configData.appConfig.backup_Location);
-            }           
+            }
         }
 
         private void form_Main_Load(object sender, EventArgs e)
         {
             if (File.Exists(AutoSavePath)) // If autosave file exists, load text
             {
-                tb_Main.Text = File.ReadAllText(AutoSavePath);
+                rtb_Main.Text = File.ReadAllText(AutoSavePath);
             }
             StartBackupTimer();
+
+        
         }
 
         private void form_Main_Resize(object sender, EventArgs e)
@@ -61,47 +59,46 @@ namespace NotaNotepad
         #region Controllers
 
         #region Top Bar
-
+        
         #region Drag Window
 
-            private Point MouseDownLocation;
+        private Point MouseDownLocation;
 
-            private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
-                if (e.Button == System.Windows.Forms.MouseButtons.Left)
+                MouseDownLocation = e.Location;
+            }             
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                this.Left = e.X + this.Left - MouseDownLocation.X;
+                this.Top = e.Y + this.Top - MouseDownLocation.Y;
+            }
+        }
+
+        private const int cGrip = 100;
+        private const int cCaption = 32;
+
+        protected override void WndProc(ref Message e)
+        {
+            if (e.Msg == 0x84)
+            {
+                Point pos = new Point(e.LParam.ToInt32());
+                pos = this.PointToClient(pos);
+                if (pos.X >= this.ClientSize.Width - cGrip && pos.Y >= this.ClientSize.Height - cGrip)
                 {
-                    MouseDownLocation = e.Location;
+                    e.Result = (IntPtr)17;
+                    return;
                 }
             }
-
-            private void panel1_MouseMove(object sender, MouseEventArgs e)
-            {
-                if (e.Button == System.Windows.Forms.MouseButtons.Left)
-                {
-                    this.Left = e.X + this.Left - MouseDownLocation.X;
-                    this.Top = e.Y + this.Top - MouseDownLocation.Y;
-                }
-            }
-
-            private const int cGrip = 100;
-            private const int cCaption = 32;
-            protected override void WndProc(ref Message e)
-            {
-                if (e.Msg == 0x84)
-                {
-                    Point pos = new Point(e.LParam.ToInt32());
-                    pos = this.PointToClient(pos);
-                    if (pos.X >= this.ClientSize.Width - cGrip &&
-                        pos.Y >= this.ClientSize.Height - cGrip
-                        )
-                    {
-                        e.Result = (IntPtr)17;
-                        return;
-                    }
-                }
-                base.WndProc(ref e);
-            }
-
+            base.WndProc(ref e);
+        }
+     
         #endregion
 
         private void btn_Menu_Click(object sender, EventArgs e)
@@ -155,10 +152,104 @@ namespace NotaNotepad
 
         #endregion
 
-        private void tb_Main_TextChanged(object sender, EventArgs e)
+        #region Color Options
+
+        private void blackToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            File.WriteAllText(AutoSavePath, tb_Main.Text.ToString());
+            ChangeColor(Color.FromArgb(51, 51, 51), Color.FromArgb(253, 253, 253));
+        }
+
+        private void whiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeColor(Color.White, Color.Black);
+        }
+
+        private void yellowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeColor(Color.FromArgb(255, 255, 128), Color.Black);
+        }
+
+        private void blueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeColor(Color.LightBlue, Color.Black);
+        }
+
+        private void redToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeColor(Color.LightPink, Color.Black);
+        }
+
+        private void greenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeColor(Color.LightGreen, Color.Black);
+        }
+
+        private void blackGreenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeColor(Color.Black, Color.Lime);
+        }
+
+        private void ChangeColor(Color cBackground, Color cforeground, bool UpdateConfig = true)
+        {
+            if (UpdateConfig)
+            {
+                configData.appConfig.background_Color = cBackground;
+                configData.appConfig.foreground_Color = cforeground;
+                configData.SaveConfig();
+            }
+
+            this.BackColor = cBackground;
+            rtb_Main.BackColor = cBackground;
+            rtb_Main.ForeColor = cforeground;
+        }
+
+        #endregion
+
+        #region RightClick - Paste/Cut/Copy
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(rtb_Main.SelectedText))
+            {
+                Clipboard.SetText(rtb_Main.SelectedText);
+            }
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtb_Main.Cut();
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText())
+            {
+                var selectionIndex = rtb_Main.SelectionStart;
+                rtb_Main.Text = rtb_Main.Text.Insert(selectionIndex, Clipboard.GetText(TextDataFormat.Text).ToString());
+                rtb_Main.SelectionStart = selectionIndex + Clipboard.GetText(TextDataFormat.Text).ToString().Length;
+            }
+        }
+
+        #endregion
+
+        private void rtb_Main_TextChanged(object sender, EventArgs e)
+        {
+
+            if (rtb_Main.ForeColor == configData.appConfig.foreground_Color) {
+                rtb_Main.ForeColor = Color.FromArgb(configData.appConfig.foreground_Color.ToArgb() + 1);
+            }
+            else
+            {
+                rtb_Main.ForeColor = configData.appConfig.foreground_Color;
+            }
+
+            File.WriteAllText(AutoSavePath, rtb_Main.Text.ToString());
             SetScrollBarLayout();
+        }
+
+        private void rtb_Main_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
         }
 
         private void timer_BackUp_Tick(object sender, EventArgs e)
@@ -194,12 +285,12 @@ namespace NotaNotepad
             {
                 if (currentScrollBarVisibility) 
                 { 
-                    pnl_ResizeCorner.Left = this.Width - 40;
+                    pnl_ResizeCorner.Left = this.Width - 42;
                     pnl_ScrollBarBackground.Visible = true;
                 }
                 else
                 {
-                    pnl_ResizeCorner.Left = this.Width - 20;
+                    pnl_ResizeCorner.Left = this.Width - 22;
                     pnl_ScrollBarBackground.Visible = false;
                 }
 
@@ -214,20 +305,20 @@ namespace NotaNotepad
         /// <returns></returns>
         private bool CheckScrollBarVisibility()
         {            
-            var g = tb_Main.CreateGraphics(); // Create a Graphics object for the textbox.
+            var g = rtb_Main.CreateGraphics(); // Create a Graphics object for the textbox.
             SizeF textSize;
 
-            if (tb_Main.WordWrap)
+            if (rtb_Main.WordWrap)
                 // Get size of text when word wrap is on
-                textSize = g.MeasureString(tb_Main.Text, tb_Main.Font, tb_Main.ClientRectangle.Width);
+                textSize = g.MeasureString(rtb_Main.Text, rtb_Main.Font, rtb_Main.ClientRectangle.Width);
             else
                 // Get size of text when word wrap is off
-                textSize = g.MeasureString(tb_Main.Text, tb_Main.Font);
+                textSize = g.MeasureString(rtb_Main.Text, rtb_Main.Font);
 
             // Fix for controller error: Approximate size inconsistency difference 
-            textSize.Height += (tb_Main.Height / 11); 
+            textSize.Height += (rtb_Main.Height / 11); 
 
-            return !((RectangleF)tb_Main.ClientRectangle).Contains((PointF)textSize);
+            return !((RectangleF)rtb_Main.ClientRectangle).Contains((PointF)textSize);
         }
 
         /// <summary>
@@ -240,7 +331,7 @@ namespace NotaNotepad
                 Directory.CreateDirectory(configData.appConfig.backup_Location);
             }
             // Save Notepad text to text file
-            File.AppendAllText(configData.appConfig.backup_Location + @"\NotesBackUp_" + DateTime.Now.ToString("yyyy-MM-dd__HH-mm-ss") + ".txt", tb_Main.Text.ToString());
+            File.AppendAllText(configData.appConfig.backup_Location + @"\NotesBackUp_" + DateTime.Now.ToString("yyyy-MM-dd__HH-mm-ss") + ".txt", rtb_Main.Text.ToString());
         }
 
         /// <summary>
