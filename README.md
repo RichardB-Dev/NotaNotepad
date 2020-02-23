@@ -17,7 +17,7 @@ ________________________________________________________________________________
 
 ### **Download:** 
 Find the latest release here:
-#### [PicoFrame Download](https://github.com/RichardB-Dev/NotaNotepad/releases/latest)<br><sub> _(Extract folder and run setup)_ </sub></br>
+#### [Nota Notepad Download](https://github.com/RichardB-Dev/NotaNotepad/releases/latest)<br><sub> _(Extract folder and run setup)_ </sub></br>
 
 
 
