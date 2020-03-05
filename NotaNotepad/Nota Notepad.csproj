@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\icon_Notes.ico</ApplicationIcon>
+    <ApplicationIcon>icon_NotaNotepad_Yellow.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>D3CE2A7D14FC1CD2B0E3FA55E8C1B34F2188B7C2</ManifestCertificateThumbprint>
@@ -173,6 +173,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\noun_paste_2169574 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChatDock_Icon_Cr.ico" />
+    <Content Include="icon_NotaNotepad_Yellow.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

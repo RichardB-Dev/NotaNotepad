@@ -325,14 +325,14 @@
             this.cutToolStripMenuItem,
             this.pasteToolStripMenuItem});
             this.cmenuRightClick.Name = "cmenuRightClick";
-            this.cmenuRightClick.Size = new System.Drawing.Size(181, 92);
+            this.cmenuRightClick.Size = new System.Drawing.Size(103, 70);
             // 
             // copToolStripMenuItem
             // 
             this.copToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.copToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copToolStripMenuItem.Image")));
             this.copToolStripMenuItem.Name = "copToolStripMenuItem";
-            this.copToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.copToolStripMenuItem.Text = "Copy";
             this.copToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
@@ -341,7 +341,7 @@
             this.cutToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.cutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripMenuItem.Image")));
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.cutToolStripMenuItem.Text = "Cut";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
@@ -350,7 +350,7 @@
             this.pasteToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.pasteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripMenuItem.Image")));
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
