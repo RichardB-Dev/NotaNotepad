@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="9f7d6ed2-dbb8-4fbc-b901-ef4b825b25c2"
-    Publisher="CN=Switch"
+    Name="1bea6748-ded6-43b6-b6d5-f9fb6818947f"
+    Publisher="CN=Adam"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="9f7d6ed2-dbb8-4fbc-b901-ef4b825b25c2" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="1bea6748-ded6-43b6-b6d5-f9fb6818947f" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>NotaNotepad_UWP</DisplayName>
-    <PublisherDisplayName>Switch</PublisherDisplayName>
+    <DisplayName>NotaNotpad_UWP</DisplayName>
+    <PublisherDisplayName>Adam</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="NotaNotepad_UWP.App">
+      EntryPoint="NotaNotpad_UWP.App">
       <uap:VisualElements
-        DisplayName="NotaNotepad_UWP"
+        DisplayName="NotaNotpad_UWP"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="NotaNotepad_UWP"
+        Description="NotaNotpad_UWP"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
